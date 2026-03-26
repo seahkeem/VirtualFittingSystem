@@ -1,11 +1,10 @@
 import { Center, PerspectiveCamera, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useState, RefObject } from "react"; 
+import { useState, RefObject, Suspense } from "react";
 
 function Basilium3DLogoModel() {
   const { scene } = useGLTF("/animations/BasiliumLogo.glb");
-
-  return <primitive object={scene} scale={[2, 2, 2]} />; 
+  return <primitive object={scene} scale={[2, 2, 2]} />;
 }
 
 interface CameraSettingProps {
@@ -14,22 +13,25 @@ interface CameraSettingProps {
 
 function CameraSetting({ scrollProgress }: CameraSettingProps) {
   const { camera } = useThree();
-  
-  return useFrame(({ clock }) => {
-    const yFloat = 1.5 + Math.sin(clock.elapsedTime * 0.5) * 0.1; 
-    const scrollValue = scrollProgress.current ? scrollProgress.current.value : 0;
-    const zScroll = 0.4 + scrollValue * 2; 
-    
+
+  useFrame(({ clock }) => {
+    const baseHeight = 1.5;
+    const floatAmplitude = 0.1;
+    const floatSpeed = 0.5;
+    const yFloat =
+      baseHeight + Math.sin(clock.elapsedTime * floatSpeed) * floatAmplitude;
+
+    const scrollValue = scrollProgress.current?.value ?? 0;
+    const startZ = 0.4;
+    const scrollIntensity = 2;
+    const zScroll = startZ + scrollValue * scrollIntensity;
+
     camera.position.set(-0.2, yFloat, zScroll);
     camera.lookAt(0, 0, 0);
   });
-}
 
-type CameraSettingType = {
-  fov: number;
-  near: number;
-  far: number;
-};
+  return null;
+}
 
 interface Basilium3DLogoProps {
   scrollProgress: RefObject<{ value: number }>;
@@ -38,11 +40,6 @@ interface Basilium3DLogoProps {
 function Basilium3DLogoMain({ scrollProgress }: Basilium3DLogoProps) {
   const [contextLost, setContextLost] = useState(false);
 
-  const cameraSetting: CameraSettingType = {
-    fov: 85,
-    near: 0.1,
-    far: 1000,
-  };
   return (
     <div style={{ position: "relative", height: "100vh", width: "100%" }}>
       {contextLost && (
@@ -60,39 +57,34 @@ function Basilium3DLogoMain({ scrollProgress }: Basilium3DLogoProps) {
             backgroundColor: "rgba(0,0,0,0.7)",
             zIndex: 1,
           }}
-        >
-        </div>
+        />
       )}
       <Canvas
         shadows
         style={{ height: "100%" }}
-        camera={{
-          fov: cameraSetting.fov,
-          near: cameraSetting.near,
-          far: cameraSetting.far,
-        }}
+        camera={{ fov: 85, near: 0.1, far: 1000 }}
         onCreated={({ gl }) => {
-          gl.domElement.addEventListener("webglcontextlost", (event) => {
-            console.error("WebGL context lost!", event);
-            setContextLost(true);
-          });
-          gl.domElement.addEventListener("webglcontextrestored", () => {
-            console.log("WebGL context restored.");
-            setContextLost(false);
-          });
+          gl.domElement.addEventListener("webglcontextlost", () =>
+            setContextLost(true),
+          );
+          gl.domElement.addEventListener("webglcontextrestored", () =>
+            setContextLost(false),
+          );
         }}
       >
-        <Model scrollProgress={scrollProgress} />
+        <Suspense fallback={null}>
+          <Model scrollProgress={scrollProgress} />
+        </Suspense>
       </Canvas>
     </div>
   );
 }
 
-interface ModelProps {
+function Model({
+  scrollProgress,
+}: {
   scrollProgress: RefObject<{ value: number }>;
-}
-
-function Model({ scrollProgress }: ModelProps) {
+}) {
   return (
     <group>
       <Center>
