@@ -1,22 +1,24 @@
 @import "tailwindcss";
 
+@import "tailwindcss";
+
 @font-face {
-  font-size: 16px;
   font-family: "Prata-Regular";
-  font-weight: normal;
   src: url("./assets/fonts/Prata-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-  font-size: 16px;
   font-family: "Pretendard";
   src: url("./assets/fonts/PretendardVariable.woff2") format("woff2");
+  font-display: swap;
 }
 
 :root {
   --basilium-900: #292e49;
   --basilium-600: #536976;
   --basilium-200: #bbd2c5;
+  --basilium-100: #e9faff;
 
   --bg-base: var(--basilium-900);
   --bg-gradient-radial: radial-gradient(
@@ -25,10 +27,9 @@
     var(--basilium-600) 60%,
     var(--basilium-200) 100%
   );
-
   --text-gradient: linear-gradient(90deg, #e8f3ff 0%, #d8ebff 100%);
 
-  --font-sans: "Pretendard", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-sans: "Pretendard", system-ui, sans-serif;
   --font-accent: "Prata-Regular", serif;
 
   --tracking-tighter: -0.05em;
@@ -73,16 +74,44 @@
   --text-body-md: 1rem;
   --text-body-md-line-height: 1.6;
   --text-body-sm: 0.875rem;
-  --text-body-sm-line-height: 1.6;
 
-  --text-label: 0.75rem;
-  --text-caption: 0.75rem;
+  --anim-bounce-soft: bounce-soft 2s infinite;
+}
 
-  color-scheme: light dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --font-sans: var(--font-sans);
+  --font-accent: var(--font-accent);
+
+  --color-basilium-900: var(--basilium-900);
+  --color-basilium-600: var(--basilium-600);
+  --color-basilium-200: var(--basilium-200);
+  --color-basilium-100: var(--basilium-100);
+
+  --color-bg-base: var(--bg-base);
+  --background-image-text-gradient: var(--text-gradient);
+  --background-image-bg-radial: var(--bg-gradient-radial);
+
+  --tracking-tighter: var(--tracking-tighter);
+  --tracking-tight: var(--tracking-tight);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-widest: var(--tracking-widest);
+
+  --text-display-2xl: var(--text-display-2xl) /
+    var(--text-display-2xl-line-height);
+  --text-display-xl: var(--text-display-xl) / var(--text-display-xl-line-height);
+  --text-display-lg: var(--text-display-lg) / var(--text-display-lg-line-height);
+  --text-display-md: var(--text-display-md) / var(--text-display-md-line-height);
+
+  --text-h1: var(--text-h1) / var(--text-h1-line-height);
+  --text-h2: var(--text-h2) / var(--text-h2-line-height);
+  --text-h3: var(--text-h3) / var(--text-h3-line-height);
+  --text-h4: var(--text-h4) / var(--text-h4-line-height);
+
+  --text-body-lg: var(--text-body-lg) / var(--text-body-lg-line-height);
+  --text-body-md: var(--text-body-md) / var(--text-body-md-line-height);
+  --text-body-sm: var(--text-body-sm) / 1.5;
+
+  --animate-bounce-soft: var(--anim-bounce-soft);
 }
 
 body {
@@ -116,4 +145,20 @@ img {
   user-drag: none;
   -webkit-touch-callout: none;
   pointer-events: none;
+}
+
+@keyframes bounce-soft {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
