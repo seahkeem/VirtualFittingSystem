@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import "tailwindcss";
-
 @font-face {
   font-family: "Prata-Regular";
   src: url("./assets/fonts/Prata-Regular.ttf") format("truetype");
@@ -19,15 +17,11 @@
   --basilium-600: #536976;
   --basilium-200: #bbd2c5;
   --basilium-100: #e9faff;
+  --basilium-blue: #b8d2ff;
 
   --bg-base: var(--basilium-900);
-  --bg-gradient-radial: radial-gradient(
-    circle,
-    var(--basilium-900) 0%,
-    var(--basilium-600) 60%,
-    var(--basilium-200) 100%
-  );
   --text-gradient: linear-gradient(90deg, #e8f3ff 0%, #d8ebff 100%);
+  --text-gradient-strong: linear-gradient(90deg, #e8f3ff 0%, #b6cdff 100%);
 
   --font-sans: "Pretendard", system-ui, sans-serif;
   --font-accent: "Prata-Regular", serif;
@@ -37,19 +31,19 @@
   --tracking-normal: 0em;
   --tracking-widest: 0.1em;
 
-  --text-display-2xl: clamp(4.5rem, 10vw, 8rem);
-  --text-display-2xl-line-height: 1.1;
+  --text-display-2xl: clamp(3rem, 6vw, 6rem);
+  --text-display-2xl-line-height: 1.05;
   --text-display-2xl-letter-spacing: var(--tracking-tighter);
 
-  --text-display-xl: clamp(3.5rem, 8vw, 6rem);
+  --text-display-xl: clamp(2.5rem, 8vw, 5rem);
   --text-display-xl-line-height: 1.1;
   --text-display-xl-letter-spacing: var(--tracking-tighter);
 
-  --text-display-lg: clamp(3rem, 6vw, 4rem);
+  --text-display-lg: clamp(2rem, 6vw, 4rem);
   --text-display-lg-line-height: 1.1;
   --text-display-lg-letter-spacing: var(--tracking-tighter);
 
-  --text-display-md: clamp(2.5rem, 4vw, 2rem);
+  --text-display-md: clamp(1.75rem, 4vw, 3rem);
   --text-display-md-line-height: 1.1;
   --text-display-md-letter-spacing: var(--tracking-tighter);
 
@@ -86,9 +80,12 @@
   --color-basilium-600: var(--basilium-600);
   --color-basilium-200: var(--basilium-200);
   --color-basilium-100: var(--basilium-100);
+  --color-basilium-blue: var(--basilium-blue);
 
   --color-bg-base: var(--bg-base);
+
   --background-image-text-gradient: var(--text-gradient);
+  --background-image-text-gradient-strong: var(--text-gradient-strong);
   --background-image-bg-radial: var(--bg-gradient-radial);
 
   --tracking-tighter: var(--tracking-tighter);
@@ -161,4 +158,24 @@ img {
   60% {
     transform: translateY(-5px);
   }
+}
+
+.main-section {
+  box-sizing: border-box;
+  width: 100%;
+  transition: padding 0.3s ease-out;
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  overflow-x: hidden;
+
+  background: radial-gradient(
+    circle at var(--gradient-x, 15%) var(--gradient-y, 25%),
+    var(--basilium-900) 0%,
+    var(--basilium-600) 60%,
+    var(--basilium-200) 100%
+  );
 }
