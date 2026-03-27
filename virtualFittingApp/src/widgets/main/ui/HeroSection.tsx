@@ -1,6 +1,4 @@
-import styled, { keyframes } from "styled-components";
 import { Basilium3DLogoMain } from "@/shared";
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useNavigate } from "react-router-dom";
@@ -8,26 +6,16 @@ import { GlassButton } from "@/shared/components/glass-button";
 import { Starfield } from "@/shared/components/star";
 import { useRef, useEffect } from "react";
 import { rawSvgContent } from "../model/constants";
-import { BREAKPOINTS } from "@/shared/constants";
 import awardAiIconColor from "@/assets/awards/award-ai-icon-color.svg";
 import awardWebIconColor from "@/assets/awards/award-web-icon-color.svg";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
-const bounce = keyframes`
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-`;
-
-function HeroSection({ onScrollToVirtualFitting }: { onScrollToVirtualFitting?: () => void }) {
+function HeroSection({
+  onScrollToVirtualFitting,
+}: {
+  onScrollToVirtualFitting?: () => void;
+}) {
   const navigate = useNavigate();
   const titleRef = useRef(null);
   const textRef1 = useRef(null);
@@ -35,49 +23,48 @@ function HeroSection({ onScrollToVirtualFitting }: { onScrollToVirtualFitting?: 
   const buttonRef = useRef(null);
   const scrollProgress = useRef({ value: 0 });
 
-  const handleScheduleClick = () => {
-    navigate('/signup');
-  };
-
-  const handleStoreClick = () => {
-    navigate('/products');
-  };
-
+  const handleScheduleClick = () => navigate("/signup");
+  const handleStoreClick = () => navigate("/products");
 
   useEffect(() => {
-    gsap.set([titleRef.current, textRef1.current, textRef2.current, buttonRef.current], { opacity: 0, y: 30 });
-    
-    const tl = gsap.timeline({ defaults: { duration: 1.8, ease: "power3.out" } });
-    tl.fromTo(
-      titleRef.current, 
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1 },
-      0.5
-    ) 
-
-    .fromTo(
-      textRef1.current, 
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1 },
-      "-=1.1"
-    ) 
-
-    .fromTo(
-      textRef2.current, 
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1 },
-      "-=1.1"
-    ) 
-    
-    .fromTo(
-      buttonRef.current, 
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1 },
-      "-=1.2"
+    gsap.set(
+      [titleRef.current, textRef1.current, textRef2.current, buttonRef.current],
+      {
+        opacity: 0,
+        y: 30,
+      },
     );
 
+    const tl = gsap.timeline({
+      defaults: { duration: 1.8, ease: "power3.out" },
+    });
+    tl.fromTo(
+      titleRef.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1 },
+      0.5,
+    )
+      .fromTo(
+        textRef1.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1 },
+        "-=1.1",
+      )
+      .fromTo(
+        textRef2.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1 },
+        "-=1.1",
+      )
+      .fromTo(
+        buttonRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1 },
+        "-=1.2",
+      );
+
     gsap.to(scrollProgress.current, {
-      value: 1, 
+      value: 1,
       ease: "none",
       scrollTrigger: {
         trigger: document.body,
@@ -89,203 +76,70 @@ function HeroSection({ onScrollToVirtualFitting }: { onScrollToVirtualFitting?: 
   }, []);
 
   return (
-    <Wrapper>
-      <Starfield theme="light"/>
-        <ModelContainer>
+    <section className="relative flex min-h-screen w-full flex-col md:flex-row overflow-hidden">
+      <Starfield theme="light" />
+
+      <div className="order-1 flex h-[60vh] w-full items-center justify-center md:order-none md:h-screen md:w-1/3">
+        <div className="w-full h-full flex items-center justify-center">
           <Basilium3DLogoMain scrollProgress={scrollProgress} />
-        </ModelContainer>
-        <BackContainer>
-          <ContentContainer>
-            <AwardIconsContainer>
-              <AwardIcon src={awardWebIconColor} alt="Web Award" />
-              <AwardIcon src={awardAiIconColor} alt="AI Award" />
-            </AwardIconsContainer>
-            <TitleText ref={titleRef}>Virtual Fitting System</TitleText> 
-            <ContentText ref={textRef1}>바실리움의 다양한 IT 솔루션을 한곳에서 만나보세요.</ContentText>
-            <ContentText ref={textRef2}>지금, 비즈니스의 성장을 시작하세요.</ContentText>
-            <ButtonContainer ref={buttonRef}>
-              <GlassButton onClick={handleScheduleClick} size='large'>
-              입점상담
-              </GlassButton>
-              <GlassButton onClick={handleStoreClick} size='large'>
-              스토어
-              </GlassButton>
-            </ButtonContainer>
-          </ContentContainer>
-        </BackContainer>
-        <ScrollArrow dangerouslySetInnerHTML={{ __html: rawSvgContent }} onClick={onScrollToVirtualFitting} />
-    </Wrapper>
+        </div>
+      </div>
+
+      <div className="order-2 z-[2] flex flex-1 w-full flex-col justify-center md:order-none md:h-screen md:w-2/3 md:items-end">
+        <div className="flex w-full items-center justify-start gap-4 md:justify-end">
+          <img
+            src={awardWebIconColor}
+            alt="Web Award"
+            className="h-[40px] w-auto md:h-[48px]"
+          />
+          <img
+            src={awardAiIconColor}
+            alt="AI Award"
+            className="h-[40px] w-auto md:h-[48px]"
+          />
+        </div>
+        <h1
+          ref={titleRef}
+          className="py-4 md:py-8 mb-4 whitespace-nowrap bg-clip-text text-left text-transparent font-accent bg-text-gradient-strong text-display-lg md:text-display-2xl md:text-right md:tracking-[-4px]"
+        >
+          Virtual Fitting System
+        </h1>
+
+        <div className="flex flex-col md:items-end mb-10">
+          <p
+            ref={textRef1}
+            className="whitespace-nowrap bg-text-gradient bg-clip-text text-left text-body-md font-semibold text-transparent md:text-right sm:text-h4 md:text-h3 lg:text-h2"
+          >
+            바실리움의 다양한 IT 솔루션을 한곳에서 만나보세요.
+          </p>
+          <p
+            ref={textRef2}
+            className="whitespace-nowrap bg-text-gradient bg-clip-text text-left text-body-md font-semibold text-transparent md:text-right sm:text-h4 md:text-h3 lg:text-h2"
+          >
+            지금, 비즈니스의 성장을 시작하세요.
+          </p>
+        </div>
+
+        <div
+          ref={buttonRef}
+          className="flex w-full flex-row flex-nowrap items-center justify-start gap-4 md:justify-end"
+        >
+          <GlassButton onClick={handleScheduleClick} size="large">
+            입점상담
+          </GlassButton>
+          <GlassButton onClick={handleStoreClick} size="large">
+            스토어
+          </GlassButton>
+        </div>
+      </div>
+
+      <div
+        className="absolute bottom-30 left-1/2 z-10 -translate-x-1/2 cursor-pointer hidden md:block animate-bounce-soft text-basilium-100 [&_svg]:w-10 [&_svg]:h-auto [&_svg]:stroke-[1.5]"
+        dangerouslySetInnerHTML={{ __html: rawSvgContent }}
+        onClick={onScrollToVirtualFitting}
+      />
+    </section>
   );
 }
 
 export { HeroSection };
-
-const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media (max-width: ${BREAKPOINTS.md}px) {
-    flex-direction: column;
-    height: auto;
-    padding-top: 5rem;
-  }
-`;
-
-const ModelContainer = styled.div`
-  flex: 1;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  margin-left: 64px;
-
-  @media (max-width: ${BREAKPOINTS.md}px) {
-    flex: none;
-    width: 100%;
-    height: 40vh;
-    margin-left: 0;
-    order: 1;
-  }
-`;
-
-const BackContainer = styled.div`
-  flex: 2;
-  min-height: 100vh;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: flex-end;
-
-  @media (max-width: ${BREAKPOINTS.md}px) {
-    flex: none;
-    min-height: auto;
-    width: 100%;
-    order: 2;
-  }
-`;
-
-const ContentContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: flex-end;
-  z-index: 2;
-
-  @media (max-width: ${BREAKPOINTS.md}px) {
-    position: relative;
-    min-height: auto;
-    align-items: flex-start;
-    text-align: left;
-    z-index: auto;
-    padding: 2rem;
-  }
-`;
-
-const TitleText = styled.div`
-  font-family: "Prata-Regular";
-  font-size: 96px;
-  font-weight: 600;
-  text-align: right;
-  letter-spacing: -4px;
-  padding-right: 84px;
-  padding-bottom: 24px;
-  margin: 0;
-  background-image: linear-gradient(to right, #E9FAFF, #B8D2FF);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-
-  @media (max-width: ${BREAKPOINTS.md}px) {
-    font-size: 34px;
-    padding-right: 0;
-    text-align: left;
-    letter-spacing: -2px;
-  }
-`;
-
-const AwardIconsContainer = styled.div`
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  gap: 20px;
-  padding-right: 84px;
-  padding-bottom: 16px;
-  width: 100%;
-`;
-
-const AwardIcon = styled.img`
-  height: 50px;
-  width: auto;
-`;
-
-const ContentText = styled.div`
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.5;
-  text-align: right;
-  letter-spacing: -1px;
-  padding-right: 84px;
-  margin: 0;
-  background-image: linear-gradient(to right, #E9FAFF, #D0EFFF);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-
-  @media (max-width: ${BREAKPOINTS.md}px) {
-    font-size: 16px;
-    padding-right: 0;
-    text-align: left;
-  }
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-  align-items: center;
-  padding-top: 32px;
-  padding-right: 90px;
-  gap: 16px;
-  width: 100%; 
-
-  @media (max-width: ${BREAKPOINTS.md}px) {
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-right: 0;
-    padding-top: 2rem;
-    gap: 1rem;
-  }
-`;
-
-const ScrollArrow = styled.div`
-  position: absolute;
-  bottom: 140px;
-  z-index: 10;
-  animation: ${bounce} 2s infinite;
-  border: none;
-  color: #E9FAFF; 
-
-  svg {
-    width: 50px; 
-    height: 80px;
-    fill: none;
-    stroke: currentColor;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    display: block;
-    vertical-align: middle;
-  }
-
-  @media (max-width: ${BREAKPOINTS.md}px) {
-    display: none;
-  }
-`;
