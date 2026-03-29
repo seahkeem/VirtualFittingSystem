@@ -1,44 +1,16 @@
-# <img width="30" alt="security" src="https://github.com/user-attachments/assets/d1ffee27-8576-4b32-b7b3-0227dac29b43"> [BASILIUM 바실리움] VirtualFitting_System
+# <img width="30" alt="security" src="https://github.com/user-attachments/assets/d1ffee27-8576-4b32-b7b3-0227dac29b43"> [BASILIUM 바실리움] Virtual Fitting System
 <br>
-<img width="680" alt="security" src="https://github.com/user-attachments/assets/b8a23e60-f0d7-495b-b3cc-998196fc2f57">
+<img width="720" alt="hero" src="https://github.com/user-attachments/assets/540ff2dd-1f63-459e-8524-8c16e90a4a84" />
+
 <br>
 
 ## 주제
 
-**가상 피팅 서비스 & 의류 브랜드 입점 및 결제 시스템 : “BASILIUM: VirtualFitting_System"**
+**가상 착용·의류 브랜드 입점 커머스 시스템**
 <br>
 <br>
 <br>
 
-## 시연영상 Youtube
-
-<br>
-
-[https://www.youtube.com/BASILIUM_바실리움_시연영상](https://youtu.be/1ecBDWDEmYw?si=vfk2R8ldSRPVWj3A)
-<br>
-
-[https://www.youtube.com/BASILIUM_바실리움_AI_서버](https://youtu.be/owJlofTqY7c?si=le0aPa5x5BSDhCQM)
-<br>
-
-[https://www.youtube.com/BASILIUM바실리움_AI_동아리](https://youtu.be/RYS-lmbtfOc)
-<br>
-<br>
-<br>
-
-## 팀원 👨‍👨‍👧‍👧
-
-|                                       Backend                                        |                                       Backend                                        |
-|:-------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------:
-| <img src="https://avatars.githubusercontent.com/u/110244523?s=400" width=130px alt="한솔"> | <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="승준"> 
-|                          [한솔](https://github.com/pjhcsols)                           |                            [승준](https://github.com/)                            
-
-
-|                                        Frontend                                         |                                        Frontend                                         |                                        AI                                         |
-|:--------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------:
-| <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="민준"/> | <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="나은"/> | <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="건아"/> | <img src="https://avatars.githubusercontent.com/u/110244523?s=400" width=130px alt=""> |
-|                             [민준](https://github.com/)                             |                          [나은](https://github.com/)                          |                           [건아](https://github.com/)                           |                           [](https://github.com/)                           | 
-
-<br><br><br>
 
 # BASILIUM 연혁
 
@@ -57,6 +29,7 @@
 
 ### BASILIUM AI Project
 - **LINC3.0 동아리 활동**: 2022.05 ~ 2023.12
+
 
 
 ### BASILIUM 수료증
@@ -84,29 +57,45 @@
 <br>
 
 ## 프로젝트 설명
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 01" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/d7821a4b-1fd6-44fb-9e20-478dd464e8b6">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 09" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/9d4acedc-33dd-47b7-aad0-d78008a3185c">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 15" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/12861f20-3c63-4835-a523-b5e2c110e99b">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 21" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/9b8a5aa2-ada1-4418-a275-6d770c928dea">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 31" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/b1f13845-5083-4123-a543-f37ff6007361">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 35" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/23abe499-6b78-426e-af9a-4c90dc5a1e9b">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 42" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/ea5f3c1e-6449-41cb-9499-997be22d976f">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 46" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/77b0c3b8-11d6-4772-bd79-364aef43645f">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 50" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/fb083fe6-8dc4-4f2f-b2b1-239ed7a31025">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 10 57" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/6ba96e76-7db5-4081-8d07-4d5baf36d123">
-<img width="1263" alt="스크린샷 2024-06-13 오후 8 11 01" src="https://github.com/pjhcsols/VirtualFitting_System/assets/110244523/0e7cedb9-d2f0-4b57-82dd-fd502f06f8da">
+<img width="1000" height="1080" alt="표지" src="https://github.com/user-attachments/assets/b3cb30a3-894f-4156-b5c8-cecdda97e0cd" />
+<img width="1000" height="1080" alt="시스템 전체 구성도" src="https://github.com/user-attachments/assets/fe6bf5bb-7bb7-49c9-af6c-98f454ebe0f0" />
+<img width="1000" height="1080" alt="가상착용" src="https://github.com/user-attachments/assets/5b17d355-5c25-4f2d-ae91-d70bf09cc60a" />
+<img width="1000" height="1080" alt="결제1" src="https://github.com/user-attachments/assets/1a2f1b26-29a4-4e51-8ee5-2e36be8a78d9" />
+<img width="1000" height="1080" alt="결제2" src="https://github.com/user-attachments/assets/a46d4252-04bb-41fa-820e-22032ac64e33" />
+<img width="1000" height="1080" alt="결제3" src="https://github.com/user-attachments/assets/6e04d1e6-b401-471f-838e-8c39caadb9ed" />
 
 <br>
 <br>
 <br>
 <br>
 
-## git commit message head
-Feat : 새로운 기능 추가, 기존의 기능을 요구 사항에 맞추어 수정  
-Fix : 기능에 대한 버그 수정  
-Build : 빌드 관련 수정  
-Chore : 패키지 매니저 수정, 그 외 기타 수정 ex) .gitignore  
-Docs : 문서(주석) 수정  
-Refactor : 기능의 변화가 아닌 코드 리팩터링 ex) 변수 이름 변경  
-Test : 테스트 코드 추가/수정  
-Init : 초기화  
+
+## 2차 팀원 (2025)
+|                                       Backend                                        |                                       Backend                                        |
+|:-------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------:
+| <img src="https://avatars.githubusercontent.com/u/110244523?s=400" width=130px alt="한솔"> | <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="선우"> 
+|                          [한솔](https://github.com/pjhcsols)                           |                            [선우](https://github.com/)                            
+
+
+|                                        Frontend                                         |                                        Frontend                                 
+|:--------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------:
+| <img src="https://github.com/user-attachments/assets/0067dcc2-7437-44c2-ae6e-4d575c939967" width=130px alt="세아"/> | <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="민준"/> |
+|                             [세아](https://github.com/seahkeem)                             |                          [민준](https://github.com/xz0112)                      
+
+
+
+
+## 1차 팀원 (2024)
+
+|                                       Backend                                        |                                       Backend                                        |
+|:-------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------:
+| <img src="https://avatars.githubusercontent.com/u/110244523?s=400" width=130px alt="한솔"> | <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="승준"> 
+|                          [한솔](https://github.com/pjhcsols)                           |                            [승준](https://github.com/)                            
+
+
+|                                        Frontend                                         |                                        Frontend                                         |                                        AI                                         |
+|:--------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------:
+| <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="민준"/> | <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="나은"/> | <img src="https://avatars.githubusercontent.com/u/93867639?v=4" width=130px alt="건아"/> | <img src="https://avatars.githubusercontent.com/u/110244523?s=400" width=130px alt=""> |
+|                             [민준](https://github.com/xz0112)                             |                          [나은](https://github.com/)                          |                           [건아](https://github.com/)                           |                           [](https://github.com/)                           | 
+
+<br><br><br>
