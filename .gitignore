@@ -1,0 +1,58 @@
+# macOS
+.DS_Store
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Java / Gradle / Maven
+target/
+.gradle/
+build/
+out/
+*.class
+*.jar
+
+# Node / Vercel
+node_modules/
+.vercel/
+dist/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Docker / MySQL
+.docker/
+mysql_data/
+
+# n8n
+n8n_data/
+*.sqlite
+
+# logs
+logs/
+*.log
+
+# secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets/

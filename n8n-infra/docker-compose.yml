@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    networks:
+      - n8n-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: always
+    ports:
+      - "${N8N_PORT}:${N8N_PORT}"
+    environment:
+      - N8N_HOST=${N8N_HOST}
+      - N8N_PORT=${N8N_PORT}
+      - N8N_PROTOCOL=${N8N_PROTOCOL}
+      - NODE_ENV=${NODE_ENV}
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
+      - N8N_USER_MANAGEMENT_JWT_SECRET=${N8N_USER_MANAGEMENT_JWT_SECRET}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+      - DB_TYPE=mysqldb
+      - DB_MYSQLDB_HOST=mysql
+      - DB_MYSQLDB_PORT=3306
+      - DB_MYSQLDB_DATABASE=${MYSQL_DATABASE}
+      - DB_MYSQLDB_USER=${MYSQL_USER}
+      - DB_MYSQLDB_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - n8n-network
+
+networks:
+  n8n-network:
+    driver: bridge
